@@ -9,6 +9,7 @@ type Repository = {
 function App() {
   const {data, isFetching} = useQuery<Repository[]>('repos',async()=>{
     const response = await axios.get('https://api.github.com/users/EdreyC/repos')
+    console.log(response.data)
     return response.data
   },{
     staleTime:1000 * 60 // 1 minute
